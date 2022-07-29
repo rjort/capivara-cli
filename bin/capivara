@@ -12,7 +12,7 @@ end
 class App
   extend GLI::App
 
-  program_desc 'Describe your application here'
+  program_desc 'A generator folders and files for capybara automation templates'
 
   version Capivara::VERSION
 
@@ -27,23 +27,26 @@ class App
   arg_name 'The name of the argument'
   flag [:f,:flagname]
 
-  desc 'Describe generate here'
-  arg_name 'Describe arguments to generate here'
+  desc 'Generate a Gherkin, Page or Step'
+  # arg_name 'capivara generate --a '
   command :generate do |c|
-    c.desc 'Describe a switch to generate'
-    c.switch :s
 
-    c.desc 'Describe a flag to generate'
-    c.default_value 'default'
-    c.flag :f
+    c.desc 'Create All files'
+    c.flag [:a, :all]
+
+    c.desc 'Create Steps files'
+    c.flag [:s, :step]
+
+    c.desc 'Create Pages Objects files'
+    c.flag [:p, :page]
+
+    c.desc 'Create Gherkin files'
+    c.flag [:g, :gherkin]
+
     c.action do |global_options,options,args|
-
-      # Your command logic here
-
-      # If you have any errors, just raise them
-      # raise "that command made no sense"
-
-      puts "generate command ran"
+      puts "options - #{options}"
+      puts "args - #{args}"
+      Commands::Generate.new.start(args)
     end
   end
 

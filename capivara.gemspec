@@ -3,9 +3,9 @@ require File.join([File.dirname(__FILE__),'lib','capivara','version.rb'])
 spec = Gem::Specification.new do |s|
   s.name = 'capivara'
   s.version = Capivara::VERSION
-  s.author = 'Your Name Here'
-  s.email = 'your@email.address.com'
-  s.homepage = 'http://your.website.com'
+  s.author = 'Reuter R. S. Junior'
+  s.email = 'reuter.regis@compasso.com.br'
+  s.homepage = 'http://github.com/rjort'
   s.platform = Gem::Platform::RUBY
   s.summary = 'A description of your project'
   s.files = `git ls-files`.split("
