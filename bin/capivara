@@ -28,7 +28,7 @@ class App
   flag [:f,:flagname]
 
   desc 'Generate a Gherkin, Page or Step'
-  # arg_name 'capivara generate --a '
+  # arg_name ''
   command :generate do |c|
 
     c.desc 'Create All files'
@@ -44,9 +44,7 @@ class App
     c.flag [:g, :gherkin]
 
     c.action do |global_options,options,args|
-      puts "options - #{options}"
-      puts "args - #{args}"
-      Commands::Generate.new.start(args)
+      Commands::Generate.new.start(options.first)
     end
   end
 
